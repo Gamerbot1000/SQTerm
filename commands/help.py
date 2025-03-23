@@ -1,0 +1,13 @@
+def help():
+    print("List of app commands:")
+    print('')
+    print('     "EXIT" - Quits the app')
+    print('     "CLEARSCREEN" - Clears the previous commands')
+    print('     "SHOWDATA" - Prints all the data (Not reccomended for 1000+ rows)')
+    print('     "SHOWSPECIFICDATA" - Prints data only from specific rows')
+    print('     "IMPORTCSV" - Allows you to import a CSV file')
+    print('     "EXPORTCSV" - Allows you to export a table as a CSV file')
+    print('     "CHANGEDB" - Switch the .db file you are editing')
+    print('     "INTEGRITYCHECK" - Checks if any data in the database is corrupt')
+    print('     "HELP" - Explains all app commands')
+    print('')
