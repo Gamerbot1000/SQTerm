@@ -9,5 +9,6 @@ def help():
     print('     "EXPORTCSV" - Allows you to export a table as a CSV file')
     print('     "CHANGEDB" - Switch the .db file you are editing')
     print('     "INTEGRITYCHECK" - Checks if any data in the database is corrupt')
+    print('     "DBSTATS" - Shows various stats about the database')
     print('     "HELP" - Explains all app commands')
     print('')

@@ -11,7 +11,7 @@ from commands import importcsv
 from commands import exportcsv
 from commands import help
 from commands import integrity
-from extras import loading
+from commands import dbstats
 
 os.system('cls' if os.name == 'nt' else 'clear')
 db_name = inputs.db_name()
@@ -48,6 +48,9 @@ while True:
 
     elif i == "INTEGRITYCHECK":
         integrity.check(c)
+
+    elif i == "DBSTATS":
+        dbstats.stats(c, db_name)
 
     elif i == "HELP":
         help.help()
