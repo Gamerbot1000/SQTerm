@@ -13,6 +13,7 @@ Built for when you don’t want a bloated GUI and just need to get work done—f
 - 🔹 Export entire tables or query results to CSV
 - 🔹 View tables and their structure
 - 🔹 Switch between `.db` files mid-session
+- 🔹 Show simple database statistics
 - 🔹 Error handling with clear messages
 
 Tested on files with up to **10 million rows**. No problem.
