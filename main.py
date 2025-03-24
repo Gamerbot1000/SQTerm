@@ -52,6 +52,12 @@ while True:
     elif i == "DBSTATS":
         dbstats.stats(c, db_name)
 
+    elif i == "RELOAD":
+        conn.close()
+        print('')
+        name, conn, c = connector.connect(db_name)
+        print("Reloaded!")
+
     elif i == "HELP":
         help.help()
 
