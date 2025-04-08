@@ -1,4 +1,8 @@
-# SQTerm
+<p align="center">
+  <img src="extras/logo2.png" alt="SQTerm Logo" width="170">
+</p>
+
+# 
 
 **SQTerm** is a fast, lightweight, terminal-based SQLite tool written in Python.  
 Built for when you don’t want a bloated GUI and just need to get work done—fast.
