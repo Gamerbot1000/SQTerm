@@ -12,6 +12,9 @@ from commands import exportcsv
 from commands import help
 from commands import integrity
 from commands import dbstats
+from commands import visualedit
+from commands import directories
+
 
 os.system('cls' if os.name == 'nt' else 'clear')
 db_name = inputs.db_name()
@@ -32,19 +35,19 @@ while True:
     elif i == "SHOWDATA":
         showdata.showdata(c)
     
-    elif i == "SHOWSPECIFICDATA":
-        showspecificdata.showspecificdata(c)
+    elif "SHOWSPECIFICDATA" in i:
+        showspecificdata.showspecificdata(c, i)
 
-    elif i == "CHANGEDB":
-        n, name = changedb.changedb()
+    elif "CHANGEDB" in i:
+        n, name = changedb.changedb(i)
         db_name = n
         name, conn, c = connector.connect(db_name)
 
     elif i == "IMPORTCSV":
         importcsv.importcsv(conn)
 
-    elif i == "EXPORTCSV":
-        exportcsv.exportcsv(c, conn)
+    elif "EXPORTCSV" in i:
+        exportcsv.exportcsv(c, conn, i)
 
     elif i == "INTEGRITYCHECK":
         integrity.check(c)
@@ -54,9 +57,15 @@ while True:
 
     elif i == "RELOAD":
         conn.close()
-        print('')
+        os.system('cls' if os.name == 'nt' else 'clear')
         name, conn, c = connector.connect(db_name)
         print("Reloaded!")
+
+    elif i == "VISUALEDIT":
+        visualedit.visual_edit(conn, c, db_name)
+
+    elif i == "DIR":
+        directories.dir()
 
     elif i == "HELP":
         help.help()

@@ -1,6 +1,6 @@
 from tabulate import tabulate
 
-def showspecificdata(c):
+def showspecificdata(c, i):
 
     sf1 = c.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
     sf2 = c.fetchall()
@@ -11,18 +11,20 @@ def showspecificdata(c):
         print("No data found!")
 
     else:
-
-        table1 = c.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        table2 = c.fetchall()
-        print('')
-        print("=== Tables: ===")
-        print('')
-        for item in table2:
-            print("     ", item[0])
-        print("")
+        if len(i) > 17:
+            q = i[17:]
+        else:
+            table1 = c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+            table2 = c.fetchall()
+            print('')
+            print("=== Tables: ===")
+            print('')
+            for item in table2:
+                print("     ", item[0])
+            print("")
+            q = input("Name of the table you wish to fetch data from: ")
 
         try:
-            q = input("Name of the table you wish to fetch data from: ")
             command = f"SELECT COUNT(*) FROM {q};"
             commandex = c.execute(command)
             rowcount1 = c.fetchall()

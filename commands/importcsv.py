@@ -10,42 +10,47 @@ def importcsv(conn):
     path = input("Path to CSV folder: ")
 
     try:
+        printq = input("Do you want to print the CSV table before importing? (y/n): ")
+        if printq == 'y':
 
-        loading.loading()
-        read = pd.read_csv(path)
-        csvname = os.path.splitext(os.path.basename(path))[0]
-        row_count = len(read)
-        loading.stop()
-        if row_count < 1000:
-
-            print("")
-            print("=== CSV Table:", csvname, "===")
-            print("")
-            print(tabulate(read, headers='keys', tablefmt='grid'))
-            print("")
-        else:
-            warning = input("This CSV file has 1000+ rows are you sure you want to print it? (y/n): ")
-            if warning == 'y':
+            loading.loading()
+            read = pd.read_csv(path)
+            csvname = os.path.splitext(os.path.basename(path))[0]
+            row_count = len(read)
+            loading.stop()
+            if row_count < 100:
 
                 print("")
                 print("=== CSV Table:", csvname, "===")
                 print("")
                 print(tabulate(read, headers='keys', tablefmt='grid'))
                 print("")
+            else:
+                warning = input("This CSV file has 100+ rows are you sure you want to print it? (y/n): ")
+                if warning == 'y':
 
-        q = input("Would you like to import this table to this .db file? (y/n): ")
-        if q == 'y':
-
-            table_name = input("Input new table name: ")
-            loading.loading()
-            start_mem = psutil.Process().memory_info().rss / 1024 / 1024
-            start = time.perf_counter()
-            read.to_sql(table_name, conn, if_exists="replace", index=False)
-            end = time.perf_counter()
-            end_mem = psutil.Process().memory_info().rss / 1024 / 1024
-            length = end - start
-            mem_used = end_mem - start_mem
-            loading.stop()
-            print("Imported! Time to perform import:", length, 's', '|', "RAM Used:", mem_used, 'MB')
+                    print("")
+                    print("=== CSV Table:", csvname, "===")
+                    print("")
+                    print(tabulate(read, headers='keys', tablefmt='grid'))
+                    print("")
+        if printq == 'n':
+            pass            
+        else:
+            print("Invalid choice! Pick only y/n")
+            return
+        table_name = input("Input new table name: ")
+        loading.loading()
+        start_mem = psutil.Process().memory_info().rss / 1024 / 1024
+        start = time.perf_counter()
+        read = pd.read_csv(path)
+        read.to_sql(table_name, conn, if_exists="replace", index=False)
+        end = time.perf_counter()
+        end_mem = psutil.Process().memory_info().rss / 1024 / 1024
+        length = end - start
+        mem_used = end_mem - start_mem
+        loading.stop()
+        print("Imported! Time to perform import:", length, 's', '|', "RAM Used:", mem_used, 'MB')
     except Exception as e:
+            loading.stop()
             print("An error has occured! Problem:", e)

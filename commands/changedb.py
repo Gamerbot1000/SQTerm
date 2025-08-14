@@ -1,8 +1,11 @@
 import os
 
-def changedb():
+def changedb(i):
 
-    n = input("Enter new .db file name: ")
+    if len(i) > 9:
+        n = i[9:]
+    else:
+        n = input("Enter new .db file name: ")
     name = n + '.db'
     cs = input("Execute 'CLEARSCREEN' after .db file change? (y/n): ")
     if cs == 'y':
