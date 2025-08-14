@@ -20,7 +20,7 @@ Built for when you don’t want a bloated GUI and just need to get work done—f
 - 🔹 Show simple database statistics
 - 🔹 Error handling with clear messages
 
-Tested on files with up to **10 million rows**. No problem.
+Tested on tables and `.csv` with up to **10 million rows**. No problem.
 
 ---
 
@@ -33,7 +33,7 @@ Tested on files with up to **10 million rows**. No problem.
   - `psutil`
   - `threading`
 
-Install dependencies:
+Dependencies to install if you wish to run the code yourself:
 
 ```bash
 pip install pandas tabulate psutil threading
