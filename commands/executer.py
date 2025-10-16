@@ -1,6 +1,7 @@
 import psutil
 import time
 from extras import loading
+from tabulate import tabulate
 
 def executer(c, i):
 
@@ -21,7 +22,28 @@ def executer(c, i):
             else:        
                 
                 print("Command Executed!")
-                print("Command Output:", c.fetchall())
+                output = c.fetchall()
+                try:
+                    c.execute(f"EXPLAIN QUERY PLAN {i}")
+                    tble1 = c.fetchall()
+                    for row in tble1:
+                        last = (row[-1])
+                    last_s = last.split()
+                    tble2 = last_s[-1]
+                    clmn1 = f"PRAGMA table_info({tble2})"
+                    clmn2 = c.execute(clmn1)
+                    clmn3 = c.fetchall()
+                    columns = [col[1] for col in clmn3]
+                    print('')
+                    print(tabulate(output, headers=columns, tablefmt="grid"))
+                    print('')
+                    print(f"Raw output: {output}")
+                    print("")
+
+                except Exception:
+                    pass
+                    print("Command Output:", output)
+                    
                 end = time.perf_counter()
                 end_mem = psutil.Process().memory_info().rss / 1024 / 1024
                 length = end - start
