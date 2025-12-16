@@ -32,8 +32,9 @@ Tested on tables and `.csv` files with up to **10 million rows**. No problem.
   - `pandas`  
   - `tabulate`  
   - `psutil`
+  - `keyboard`
 
 Install them with:
 
 ```bash
-pip install pandas tabulate psutil
+pip install pandas tabulate psutil keyboard
