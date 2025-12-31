@@ -1,6 +1,5 @@
 import os
 from extras import art
-from commands import directories
 
 def user_input():
     i = input("Your Command: ")

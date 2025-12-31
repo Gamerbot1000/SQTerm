@@ -1,5 +1,4 @@
 import sqlite3
-import os
 
 def connect(db_name):
     name = "databases/" + db_name + ".db"
