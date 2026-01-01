@@ -29,8 +29,6 @@ def main_app():
             cmd.main(state, i)
 
         except Exception as e:
-            print(f"Error: {e}")
-
             executer.executer(c, i)
 
     svq = input("Do you want to save the changes made in this database before exiting? (y/n): ")

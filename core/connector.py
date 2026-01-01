@@ -6,7 +6,6 @@ def connect(db_name):
         name = db_name
     else:
         name = "databases/" + db_name + ".db"
-    print(db_name)
     conn = sqlite3.connect(name)
     c = conn.cursor()
     print(f"========== Editing: {name} ==========")
