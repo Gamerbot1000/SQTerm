@@ -1,4 +1,3 @@
-import sqlite3
 from tabulate import tabulate
 import keyboard
 import time
@@ -6,7 +5,12 @@ import os
 from commands import clearscreen
 from extras import loading
 
-def visual_edit(conn, c, db_name):
+def info():
+    return '"VISUALEDIT" - Allows you to edit the database visually (This feature is still in beta and is windows only!)'
+
+def main(state, i):
+    conn = state["conn"]
+    c = state["cursor"]
 
     sf1 = c.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
     sf2 = c.fetchall()
@@ -148,7 +152,7 @@ def visual_edit(conn, c, db_name):
 
                 elif keyboard.is_pressed('esc'):
                     conn.rollback()
-                    clearscreen.clearscreen(db_name)
+                    os.system('cls' if os.name == 'nt' else 'clear')
                     print('\033[?25h', end='')
                     break
 
@@ -158,6 +162,6 @@ def visual_edit(conn, c, db_name):
             loading.loading()
             time.sleep(2.5) # This time.sleep is to give the user time to read the error message
             loading.stop()
-            clearscreen.clearscreen(db_name)
+            os.system('cls' if os.name == 'nt' else 'clear')
             print('\033[?25h', end='')
 

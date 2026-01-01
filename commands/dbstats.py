@@ -1,7 +1,13 @@
 import os
 import time
 
-def stats(c, db_name):
+def info():
+    return '"DBSTATS" - Shows various stats about the database'
+
+def main(state, i):
+    name = state["name"]
+    c = state["cursor"]
+
     print("")
     print("==== Database Stats ====")
     print("")
@@ -19,9 +25,9 @@ def stats(c, db_name):
             print(" - ",i[0])
         print("")
 
-    size = os.path.getsize("databases/" + db_name + ".db") / 1024 / 1024
+    size = os.path.getsize(name) / 1024 / 1024
     print(f'Estimated size:     {size:.2f} MB')
-    t = os.path.getmtime("databases/" + db_name + ".db")
+    t = os.path.getmtime(name)
     now = time.time()
     diff = (now - t) / 60
     t_name = "minutes"

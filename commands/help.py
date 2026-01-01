@@ -1,17 +1,15 @@
-def help():
-    print("List of app commands:")
-    print('')
-    print('     "EXIT" - Quits the app')
-    print('     "CLEARSCREEN" - Clears the previous commands')
-    print('     "SHOWDATA" - Prints all the data (Not reccomended for 1000+ rows and .db files with a lot of tables)')
-    print('     "SHOWSPECIFICDATA" - Prints data only from specific rows')
-    print('     "IMPORTCSV" - Allows you to import a CSV file')
-    print('     "EXPORTCSV" - Allows you to export a table as a CSV file')
-    print('     "CHANGEDB" - Switch the .db file you are editing')
-    print('     "VISUALEDIT" - Allows you to edit the database visually')
-    print('     "INTEGRITYCHECK" - Checks if any data in the database is corrupt')
-    print('     "DBSTATS" - Shows various stats about the database')
-    print('     "RELOAD" - Reloads the connection to the database')
-    print('     "HELP" - Explains all app commands')
-    print('     "DIR" - Shows the directories of the databases and exports folders')
-    print('')
+import os
+import commands
+
+def info():
+    return '"HELP" - Explains all app commands'
+
+def main(state, i):
+    print("Available commands:")
+    command = os.listdir('commands')
+    for file in command:
+        if ".py" in file:
+            try:
+                print('     '+getattr(commands, file[:-3]).info())
+            except:
+                pass

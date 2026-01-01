@@ -3,7 +3,12 @@ import time
 import psutil
 from extras import loading
 
-def exportcsv(c, conn, i):
+def info():
+    return '"EXPORTCSV" - Exports a table to a CSV file'
+
+def main(state, i):
+    conn = state["conn"]
+    c = state["cursor"]
      
     sf1 = c.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
     sf2 = c.fetchall()

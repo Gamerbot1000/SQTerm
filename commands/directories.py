@@ -1,6 +1,9 @@
 import os
 
-def dir():
+def info():
+    return '"DIR" - Shows the directories of the databases and exports folders'
+
+def main(state, i):
 
     databases_dir = os.path.join(os.path.dirname(__file__), "databases")
     exports_dir = os.path.join(os.path.dirname(__file__), "exports")

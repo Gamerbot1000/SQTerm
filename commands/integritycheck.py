@@ -1,6 +1,11 @@
 from extras import loading
 
-def check(c):
+def info():
+    return '"INTEGRITYCHECK" - Checks if any data in the database is corrupt'
+
+def main(state, i):
+    c = state["cursor"]
+
     try:
         loading.loading()
         ex = c.execute("PRAGMA integrity_check;")

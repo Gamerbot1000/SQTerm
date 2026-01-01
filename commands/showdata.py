@@ -1,6 +1,10 @@
 from tabulate import tabulate
 
-def showdata(c):
+def info():
+    return '"SHOWDATA" - Prints all the data (Not reccomended for large databases)'
+
+def main(state, i):
+    c = state["cursor"]
 
     sf1 = c.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
     sf2 = c.fetchall()

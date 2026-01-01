@@ -16,18 +16,23 @@ def db_name():
     print("Please enter the name of the .db file you want to work with.")
     print("If the file does not exist, it will be created.")
     print("")
-    folder_path = "databases"
-    file_names = os.listdir(folder_path)
-    l = len(file_names)
+    databases = os.listdir("databases")
+    l = len(databases)
     if l == 0:
         pass
     else:
-        print("List of available databases:")
+        print("List of available databases in the databases folder:")
         print("")
-        for x in range(1, l):
-            print(" - ", file_names[x])
+        for file in databases:
+            if file.endswith(".db"):
+                print(" - ", file)
     print("")
-    print("Make sure not to include the .db extension in the name.")
-    print("")
-    n = input("Enter .db file name: ")
+    n = input("Enter .db file name or path to .db file: ")
+    if os.path.isfile(n) == True:
+        pass
+    else:
+        n = n.lower()
+        if n.endswith(".db"):
+            n = n[:-3]
+    print(n)
     return n

@@ -5,7 +5,11 @@ import os
 from tabulate import tabulate
 from extras import loading
 
-def importcsv(conn):
+def info():
+    return '"IMPORTCSV" - Imports a CSV file as a new table'
+
+def main(state, i):
+    conn = state["conn"]
 
     path = input("Path to CSV folder: ")
 
@@ -27,14 +31,14 @@ def importcsv(conn):
                 print("")
             else:
                 warning = input("This CSV file has 100+ rows are you sure you want to print it? (y/n): ")
-                if warning == 'y':
+                if warning == 'y' or warning == 'Y':
 
                     print("")
                     print("=== CSV Table:", csvname, "===")
                     print("")
                     print(tabulate(read, headers='keys', tablefmt='grid'))
                     print("")
-        if printq == 'n':
+        if printq == 'n' or printq == 'N':
             pass            
         else:
             print("Invalid choice! Pick only y/n")
