@@ -34,5 +34,4 @@ def db_name():
         n = n.lower()
         if n.endswith(".db"):
             n = n[:-3]
-    print(n)
     return n
