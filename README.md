@@ -29,7 +29,8 @@ Tested on tables and `.csv` files with up to **10 million rows**. No problem.
 
 - Python 3.x  
 - Libraries:  
-  - `pandas`  
+  - `petl`
+  - `sqlalchemy`
   - `tabulate`  
   - `psutil`
   - `keyboard`
@@ -37,4 +38,4 @@ Tested on tables and `.csv` files with up to **10 million rows**. No problem.
 Install them with:
 
 ```bash
-pip install pandas tabulate psutil keyboard
+pip install petl sqlalchemy tabulate psutil keyboard
