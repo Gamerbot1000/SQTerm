@@ -1,5 +1,5 @@
 import os
-from core import connector
+from sqterm.core import connector
 
 def info():
     return '"CHANGEDB" - Switch the .db file you are editing'

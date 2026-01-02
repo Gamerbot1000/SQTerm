@@ -6,7 +6,7 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 os.chdir(ROOT)
 
-from .main import main_app
+from sqterm.core.main import main_app
 
 def main():
     main_app()

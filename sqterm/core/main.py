@@ -1,10 +1,13 @@
 import os
 import importlib
-from core import inputs
-from core import connector
-from core import executer
+from sqterm.core import inputs
+from sqterm.core import connector
+from sqterm.core import executer
 
 def main_app():
+    os.makedirs("databases", exist_ok=True)
+    os.makedirs("exports", exist_ok=True)
+
 
     os.system('cls' if os.name == 'nt' else 'clear')
     db_name = inputs.db_name()
@@ -25,7 +28,7 @@ def main_app():
         i = inputs.user_input()
 
         try:
-            cmd = importlib.import_module(f"commands.{i.lower()}")
+            cmd = importlib.import_module(f"sqterm.commands.{i.lower()}")
             cmd.main(state, i)
 
         except Exception as e:

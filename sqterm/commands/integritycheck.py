@@ -1,4 +1,4 @@
-from extras import loading
+from sqterm.extras import loading
 
 def info():
     return '"INTEGRITYCHECK" - Checks if any data in the database is corrupt'

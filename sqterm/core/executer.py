@@ -1,6 +1,6 @@
 import psutil
 import time
-from extras import loading
+from sqterm.extras import loading
 
 def executer(c, i):
 

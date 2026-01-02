@@ -1,5 +1,5 @@
 import os
-from extras import art
+from sqterm.extras import art
 
 def user_input():
     i = input("Your Command: ")

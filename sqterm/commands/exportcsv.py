@@ -1,7 +1,7 @@
 import petl as etl
 import time
 import psutil
-from extras import loading
+from sqterm.extras import loading
 
 def info():
     return '"EXPORTCSV" - Exports a table to a CSV file'
@@ -45,7 +45,7 @@ def main(state, i):
             length = end - start
             mem_used = end_mem - start_mem
             loading.stop()
-            print("Imported! Time to perform import:", length, 's', '|', "RAM Used:", mem_used, 'MB')
+            print("Exported! Time to perform export:", length, 's', '|', "RAM Used:", mem_used, 'MB')
 
         except Exception as e:
             print("An error has occured! Problem:", e)

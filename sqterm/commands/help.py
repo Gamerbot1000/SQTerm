@@ -1,5 +1,6 @@
 import os
-import commands
+import importlib
+import sqterm.commands
 
 def info():
     return '"HELP" - Explains all app commands'
@@ -10,6 +11,8 @@ def main(state, i):
     for file in command:
         if ".py" in file:
             try:
-                print('     '+getattr(commands, file[:-3]).info())
-            except:
-                pass
+                module = importlib.import_module(f"sqterm.commands.{file[:-3]}")
+                if hasattr(module, "info"):
+                    print("     " + module.info())
+            except Exception as e:
+                print(e)

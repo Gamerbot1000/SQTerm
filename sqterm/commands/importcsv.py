@@ -2,7 +2,7 @@ import petl as etl
 import time
 import psutil
 import sqlalchemy
-from extras import loading
+from sqterm.extras import loading
 
 def info():
     return '"IMPORTCSV" - Imports a CSV file as a new table'
