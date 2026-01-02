@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="extras/logo2.png" alt="SQTerm Logo" width="170">
+  <img src="sqterm/extras/logo2.png" alt="SQTerm Logo" width="170">
 </p>
 
 # 
