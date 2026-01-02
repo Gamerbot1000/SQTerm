@@ -26,6 +26,18 @@ Tested on tables and `.csv` files with up to **10 million rows**. No problem.
 
 ---
 
+## ⬇️ Installation
+
+pip:
+
+`pip install sqterm`
+
+pipx:
+
+`pipx install sqterm`
+
+---
+
 ## 🛠 Requirements for running source code
 
 - Python 3.x  
