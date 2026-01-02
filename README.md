@@ -13,8 +13,7 @@ Built for when you don’t want a bloated GUI and just need to get work done —
 
 - 🔹 Execute raw SQL commands directly
 - 🔹 Clean table output with `tabulate`
-- 🔹 TUI for browsing and editing tables (`VISUALEDIT`)
-- 🔹 Import large CSV files into tables (fast, pandas-backed)
+- 🔹 Import large CSV files into tables (fast, petl-backed)
 - 🔹 Export entire tables or query results to CSV
 - 🔹 View tables and their structure
 - 🔹 Show simple database statistics
@@ -29,7 +28,8 @@ Tested on tables and `.csv` files with up to **10 million rows**. No problem.
 
 - Python 3.x  
 - Libraries:  
-  - `pandas`  
+  - `petl`
+  - `sqlalchemy`
   - `tabulate`  
   - `psutil`
   - `keyboard`
@@ -37,4 +37,4 @@ Tested on tables and `.csv` files with up to **10 million rows**. No problem.
 Install them with:
 
 ```bash
-pip install pandas tabulate psutil keyboard
+pip install petl sqlalchemy tabulate psutil keyboard
