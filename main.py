@@ -31,12 +31,9 @@ def main_app():
         except Exception as e:
             executer.executer(c, i)
 
-    svq = input("Do you want to save the changes made in this database before exiting? (y/n): ")
-    if svq == 'y' or svq == 'Y':
-        conn.commit()
-        conn.close()
-    else:
-        conn.close()
+
+    conn.commit()
+    conn.close()
 
 if __name__ == "__main__":
     main_app()
