@@ -4,7 +4,7 @@
 
 # 
 
-**SQTerm** is a fast, lightweight, terminal-based SQLite tool written in Python.  
+**SQTerm** is a fast, modular, lightweight, terminal-based SQLite tool written in Python.  
 Built for when you don’t want a bloated GUI and just need to get work done — fast.
 
 ---
@@ -19,12 +19,14 @@ Built for when you don’t want a bloated GUI and just need to get work done —
 - 🔹 Show simple database statistics
 - 🔹 Switch between `.db` files mid-session
 - 🔹 Error handling with clear messages
+- 🔹 Remove any unused feature by simply deleting a single file
+- 🔹 Write your own feature easily in a simple format if preinstalled features don't meet your needs
 
 Tested on tables and `.csv` files with up to **10 million rows**. No problem.
 
 ---
 
-## 🛠 Requirements for running code
+## 🛠 Requirements for running source code
 
 - Python 3.x  
 - Libraries:  
