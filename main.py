@@ -31,9 +31,5 @@ def main_app():
         except Exception as e:
             executer.executer(c, i)
 
-
-    conn.commit()
-    conn.close()
-
 if __name__ == "__main__":
     main_app()
