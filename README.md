@@ -14,7 +14,7 @@ Built for when you don’t want a bloated GUI and just need to get work done —
 - 🔹 Execute raw SQL commands directly
 - 🔹 Clean table output with `tabulate`
 - 🔹 TUI for browsing and editing tables (`VISUALEDIT`)
-- 🔹 Import large CSV files into tables (fast, pandas-backed)
+- 🔹 Import large CSV files into tables (fast, petl-backed)
 - 🔹 Export entire tables or query results to CSV
 - 🔹 View tables and their structure
 - 🔹 Show simple database statistics
