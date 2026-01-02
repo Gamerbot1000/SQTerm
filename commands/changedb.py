@@ -8,14 +8,6 @@ def main(state, i):
     conn = state["conn"]
 
     n = input("Enter new .db file name: ")
-    svq = input("Do you want to save the changes made in this database before switching? (y/n): ")
-    if svq == 'y' or svq == 'Y':
-        conn.commit()
-        conn.close()
-    elif svq == 'n' or svq == 'N':
-        conn.close()    
-    else:
-        print("Invalid choice! Pick only y/n")
 
     clsq = input("Execute 'CLEARSCREEN' after .db file change? (y/n): ")
     if clsq == 'y' or clsq == 'Y':
