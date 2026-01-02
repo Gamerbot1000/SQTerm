@@ -32,9 +32,8 @@ Tested on tables and `.csv` files with up to **10 million rows**. No problem.
   - `sqlalchemy`
   - `tabulate`  
   - `psutil`
-  - `keyboard`
 
 Install them with:
 
 ```bash
-pip install petl sqlalchemy tabulate psutil keyboard
+pip install petl sqlalchemy tabulate psutil
