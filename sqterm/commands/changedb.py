@@ -13,7 +13,7 @@ def main(state, i):
     if clsq == 'y' or clsq == 'Y':
         os.system('cls' if os.name == 'nt' else 'clear')
     elif clsq == 'n' or clsq == 'N':
-        print("")       
+        pass       
     else:
         print("Invalid choice! Pick only y/n")
     

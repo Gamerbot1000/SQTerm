@@ -1,5 +1,6 @@
 import os
 import importlib
+import sys
 from sqterm.core import inputs
 from sqterm.core import connector
 from sqterm.core import executer
@@ -9,9 +10,17 @@ def main_app():
     os.makedirs("exports", exist_ok=True)
 
 
-    os.system('cls' if os.name == 'nt' else 'clear')
-    db_name = inputs.db_name()
-    os.system('cls' if os.name == 'nt' else 'clear')
+
+    if len(sys.argv) > 1 and os.path.isfile(sys.argv[1]) == True:
+        db_name = sys.argv[1]
+    elif len(sys.argv) > 1 and sys.argv[1] == "--legacy":
+        db_name = inputs.db_name_legacy()
+    elif len(sys.argv) > 1 and os.path.isfile(sys.argv[1]) == False:
+        print("Invalid argument, type 'sqterm [PATH_TO_DB]' or 'sqterm --legacy' for old database selection.")
+        sys.exit()
+    else:
+        db_name = inputs.db_name()
+
     name, conn, c = connector.connect(db_name)
 
 
@@ -25,7 +34,7 @@ def main_app():
 
     while state["running"]:
         
-        i = inputs.user_input()
+        i = inputs.user_input(state)
 
         try:
             cmd = importlib.import_module(f"sqterm.commands.{i.lower()}")

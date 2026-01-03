@@ -8,7 +8,6 @@ def main(state, i):
     name = state["name"]
     c = state["cursor"]
 
-    print("")
     print("==== Database Stats ====")
     print("")
     sf1 = c.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
@@ -37,4 +36,3 @@ def main(state, i):
     print(f"Last modified:      {diff:.2f} {t_name} ago")
     print("")
     print("========================")
-    print("")
