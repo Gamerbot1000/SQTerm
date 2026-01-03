@@ -7,7 +7,7 @@ requires-python = ">=3.9"
 license = {file = "LICENSE"}
 authors = [{name = "Gbot"}]
 
-dependencies = ["tabulate", "petl", "psutil", "keyboard", 'sqlalchemy']
+dependencies = ["tabulate", "petl", "psutil", 'sqlalchemy']
 
 [project.scripts]
 sqterm = "sqterm.__main__:main"
