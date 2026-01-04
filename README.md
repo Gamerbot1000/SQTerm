@@ -38,6 +38,40 @@ pipx:
 
 ---
 
+## 🔧 Making your own commands
+
+To make your own command simply create a .py file titled **exactly** what the user has to type to execute the command.
+
+Each command consists of two required functions:
+- `info()` – returns a short description of the command
+- `main(state, i)` – contains the command logic
+
+Example of an `info()` function:
+
+```py
+def info():
+    return '"IMPORTCSV" - Imports a CSV file as a new table'
+```
+
+Example of a `main()` function:
+
+```py
+def main(state, i):
+    print("Hello from this command!")
+```
+
+If your script needs access to things such as the database path, the SQLite connection, or the cursor, you can retrieve them from the state argument:
+
+```py
+name = state["name"]
+conn = state["conn"]
+cursor = state["cursor"]
+```
+If you need the raw user input that triggered the command, you can access it via the i argument passed into main().
+Once you've written your command simply drop it into the `commands` folder, start SQTerm and your command should work seamlessly when executed (you can also type `help` to see if your command shows up)
+
+---
+
 ## 🛠 Requirements for running source code
 
 - Python 3.x  
