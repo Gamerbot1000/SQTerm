@@ -7,6 +7,9 @@ def info():
 def main(state, i):
     conn = state["conn"]
 
+    if len(i) > 9:
+        n = i[9:]
+
     n = input("Enter new .db file name: ")
 
     clsq = input("Execute 'CLEARSCREEN' after .db file change? (y/n): ")

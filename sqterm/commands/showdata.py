@@ -22,7 +22,7 @@ def main(state, i):
 
         for item in table2:
             print('')
-            print('===', "Table:", item[0], '===')
+            print(f'=== Table {item[0]} Data ===')
 
             command1 = f"SELECT * FROM {item[0]};"
             row1 = c.execute(command1)

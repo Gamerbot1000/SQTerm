@@ -7,8 +7,6 @@ from sqterm.core import executer
 
 def main_app():
     os.makedirs("databases", exist_ok=True)
-    os.makedirs("exports", exist_ok=True)
-
 
 
     if len(sys.argv) > 1 and os.path.isfile(sys.argv[1]) == True:

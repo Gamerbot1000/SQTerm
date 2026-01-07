@@ -1,6 +1,7 @@
 import petl as etl
 import time
 import psutil
+import os
 from sqterm.extras import loading
 
 def info():
@@ -9,6 +10,8 @@ def info():
 def main(state, i):
     conn = state["conn"]
     c = state["cursor"]
+
+    os.makedirs("exports", exist_ok=True)
 
     c.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
     sf2 = c.fetchall()
