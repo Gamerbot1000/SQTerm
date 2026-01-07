@@ -18,40 +18,40 @@ def main(state, i):
         if len(i) > 17:
             q = i[17:]
         else:
-            table1 = c.execute("SELECT name FROM sqlite_master WHERE type='table';")
-            table2 = c.fetchall()
-            print('')
+            c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+            tables = c.fetchall()
             print("=== Tables: ===")
             print('')
-            for item in table2:
+            for item in tables:
                 print("     ", item[0])
-            print("")
+            print('')
             q = input("Name of the table you wish to fetch data from: ")
 
         try:
-            columnnames = c.execute(f"SELECT name FROM pragma_table_info('{q}');")
-            columnnames1 = c.fetchall()
+            c.execute(f"SELECT name FROM pragma_table_info('{q}');")
+            column_names = c.fetchall()
             print('')
             print("=== Columns in table", q + ": ===")
             print('')
-            for col in columnnames1:
+            for col in column_names:
                 print("     ", col[0])
-            print("")
+            print('')
             q_col = input("Names of columns you wish to fetch data from (or press ENTER to select all): ")
             if q_col == "":
                 q_col = "*"
 
-            rowcount_ex = c.execute(f"SELECT COUNT(*) FROM {q};")
-            rowcount1 = c.fetchall()
-            rowcount = rowcount1[0]
-            print(f"Rows available: {rowcount[0]}")
+            c.execute(f"SELECT COUNT(*) FROM {q};")
+            row_count = c.fetchall()
+            row_count_fetch = row_count[0]
+            print('')
+            print(f"Rows available: {row_count_fetch[0]}")
             q1 = input("Start from row: ")
             q1f = str(int(q1)-1)
             q2 = input("Row limit: ")
             q2f = str(int(q2)+1)
-            command1 = f"SELECT {q_col} FROM {q} LIMIT {q2f} OFFSET {q1f}"
-            row1 = c.execute(command1)
-            row2 = c.fetchall()
+            fetched_data = f"SELECT {q_col} FROM {q} LIMIT {q2f} OFFSET {q1f}"
+            c.execute(fetched_data)
+            rows = c.fetchall()
 
             if q_col == "*":                
                 command2 = "PRAGMA table_info(" + q + ")"
@@ -61,7 +61,7 @@ def main(state, i):
                 columns = [col.strip() for col in q_col.split(",")]
                             
             print('')
-            print(tabulate(row2, headers=columns, tablefmt="grid"))
+            print(tabulate(rows, headers=columns, tablefmt="grid"))
             print('')
         except Exception as e:
             print("An error has occured! Problem:", e)

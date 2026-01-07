@@ -19,13 +19,13 @@ def main(state, i):
         print("No tables found!")
 
     else:        
-        table1 = c.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        table2 = c.fetchall()
+        c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = c.fetchall()
         print('')
-        print("==== Tables: ====")
+        print("=== Tables: ===")
         print('')
 
-        for item in table2:
+        for item in tables:
             print("     ", item[0])
             print('')
 

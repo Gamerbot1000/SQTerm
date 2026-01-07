@@ -37,7 +37,7 @@ def main_app():
         i = inputs.user_input(state)
 
         try:
-            cmd = importlib.import_module(f"sqterm.commands.{i.lower()}")
+            cmd = importlib.import_module(f"sqterm.commands.{i.split()[0].lower()}")
             cmd.main(state, i)
 
         except Exception as e:
