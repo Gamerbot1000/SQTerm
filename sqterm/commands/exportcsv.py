@@ -30,7 +30,7 @@ def main(state, i):
 
         for item in tables:
             print("     ", item[0])
-            print('')
+        print('')
 
         table_name = input("Which table would you like to export to CSV?: ")
 
