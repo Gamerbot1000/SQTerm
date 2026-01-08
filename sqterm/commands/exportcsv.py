@@ -42,7 +42,7 @@ def main(state, i):
             start = time.perf_counter()
             loading.loading()
             table = etl.fromdb(conn, f'SELECT * FROM "{table_name}";')
-            etl.tocsv(table, f'{path}{table_name}.csv')
+            etl.tocsv(table, f'{path}/{table_name}.csv')
             end = time.perf_counter()
             end_mem = psutil.Process().memory_info().rss / 1024 / 1024
             length = end - start

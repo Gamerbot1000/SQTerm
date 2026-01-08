@@ -9,8 +9,8 @@ def main(state, i):
 
     if len(i) > 9:
         n = i[9:]
-
-    n = input("Enter new .db file name: ")
+    else:
+        n = input("Enter new .db file name: ")
 
     clsq = input("Execute 'CLEARSCREEN' after .db file change? (y/n): ")
     if clsq == 'y' or clsq == 'Y':
