@@ -1,6 +1,5 @@
 import os
 import importlib
-import sqterm.commands
 
 def info():
     return '"HELP" - Explains all app commands'

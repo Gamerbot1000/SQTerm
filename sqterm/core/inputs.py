@@ -1,14 +1,9 @@
 import os
 from sqterm.extras import art
+from sqterm.extras.colors import *
 
 def user_input(state):
     name = state["name"]
-
-    GREEN = "\033[32m"
-    DIM   = "\033[2m"
-    RED   = "\033[31m"
-    CYAN  = "\033[36m"
-    RESET = "\033[0m"
 
     i = input(f"{GREEN}sqterm{RESET}{DIM}@{RESET}{CYAN}{os.path.basename(name)}:{RESET} ")
     return i
