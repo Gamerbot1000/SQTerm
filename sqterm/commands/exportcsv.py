@@ -3,6 +3,7 @@ import time
 import psutil
 import os
 from sqterm.extras import loading
+from sqterm.extras.autocomplete import CACHE
 
 def info():
     return '"EXPORTCSV" - Exports a table to a CSV file'
@@ -30,6 +31,7 @@ def main(state, i):
 
         for item in tables:
             print("     ", item[0])
+            CACHE.append(item[0])
         print('')
 
         table_name = input("Which table would you like to export to CSV?: ")
@@ -48,7 +50,7 @@ def main(state, i):
             length = end - start
             mem_used = end_mem - start_mem
             loading.stop()
+            CACHE.clear()
             print("Exported! Time to perform export:", length, 's', '|', "RAM Used:", mem_used, 'MB')
-
         except Exception as e:
             print("An error has occured! Problem:", e)

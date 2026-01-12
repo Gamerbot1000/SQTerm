@@ -1,4 +1,5 @@
 from tabulate import tabulate
+from sqterm.extras.autocomplete import CACHE
 
 def info():
     return '"SHOWSPECIFICDATA" - Prints specific data from a chosen table'
@@ -24,6 +25,7 @@ def main(state, i):
             print('')
             for item in tables:
                 print("     ", item[0])
+                CACHE.append(item[0])
             print('')
             q = input("Name of the table you wish to fetch data from: ")
 
@@ -35,6 +37,7 @@ def main(state, i):
             print('')
             for col in column_names:
                 print("     ", col[0])
+                CACHE.append(col[0])
             print('')
             q_col = input("Names of columns you wish to fetch data from (or press ENTER to select all): ")
             if q_col == "":
@@ -59,6 +62,8 @@ def main(state, i):
                 columns = [col[1] for col in c.fetchall()]
             else:
                 columns = [col.strip() for col in q_col.split(",")]
+
+            CACHE.clear()
                             
             print('')
             print(tabulate(rows, headers=columns, tablefmt="grid"))

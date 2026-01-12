@@ -4,6 +4,7 @@ import sys
 from sqterm.core import inputs
 from sqterm.core import connector
 from sqterm.core import executer
+from sqterm.extras import autocomplete
 
 def main_app():
     os.makedirs("databases", exist_ok=True)
@@ -21,6 +22,7 @@ def main_app():
 
     name, conn, c = connector.connect(db_name)
 
+    autocomplete.completer()
 
     state = {
         "db_name": db_name,
