@@ -69,4 +69,5 @@ def main(state, i):
             print(tabulate(rows, headers=columns, tablefmt="grid"))
             print('')
         except Exception as e:
+            CACHE.clear()
             print("An error has occured! Problem:", e)

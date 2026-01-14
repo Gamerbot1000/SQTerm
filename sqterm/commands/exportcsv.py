@@ -25,7 +25,6 @@ def main(state, i):
     else:        
         c.execute("SELECT name FROM sqlite_master WHERE type='table';")
         tables = c.fetchall()
-        print('')
         print("=== Tables: ===")
         print('')
 
@@ -53,4 +52,6 @@ def main(state, i):
             CACHE.clear()
             print("Exported! Time to perform export:", length, 's', '|', "RAM Used:", mem_used, 'MB')
         except Exception as e:
+            loading.stop()
+            CACHE.clear()
             print("An error has occured! Problem:", e)

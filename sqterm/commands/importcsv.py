@@ -28,5 +28,6 @@ def main(state, i):
         loading.stop()
         print("Imported! Time to perform import:", length, 's', '|', "RAM Used:", mem_used, 'MB')
     except Exception as e:
+        c.execute(f'DROP TABLE IF EXISTS "{table_name}";')
         loading.stop()
         print("An error has occured! Problem:", e)
