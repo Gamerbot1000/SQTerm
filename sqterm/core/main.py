@@ -13,8 +13,14 @@ def main_app():
         db_name = sys.argv[1]
     elif len(sys.argv) == 2 and sys.argv[1] == "--legacy":
         db_name = inputs.db_name_legacy()
+    elif len(sys.argv) == 2 and sys.argv[1] == "--help":
+        print("Usage: sqterm [PATH_TO_DB] ['SQL COMMAND'] (Optional) \n")
+        print("If no PATH_TO_DB is provided, you will be prompted to select a database.")
+        print("Use --legacy to select a database from the old database selection menu.")
+        print("Optionally, use --raw followed by an SQL command to execute the command and print a raw output.")
+        sys.exit()
     elif len(sys.argv) >= 2 and os.path.isfile(sys.argv[1]) == False:
-        print("Invalid argument, type 'sqterm [PATH_TO_DB]' or  'sqterm --legacy' for old database selection.")
+        print("Invalid argument, use --help for help.")
         sys.exit()
 
     elif len(sys.argv) >= 3:
