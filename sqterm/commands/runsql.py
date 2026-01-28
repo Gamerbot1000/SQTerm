@@ -3,7 +3,7 @@ import time
 from sqterm.extras import loading
 
 def info():
-    return '"RUNSQL" - wip'
+    return '"RUNSQL" - Run an external .sql file'
 
 def main(state, i):
     c = state["cursor"]
