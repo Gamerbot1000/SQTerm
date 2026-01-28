@@ -42,7 +42,7 @@ def main(state, i):
         sf5 = c.execute("SELECT name FROM sqlite_master WHERE type='table';")
         sf6 = sf5.fetchall()
         for i in sf6:
-            print(f"{DIM} - {RESET}{i[0]}  {DIM}|{RESET}  {GREEN}{c.execute(f'SELECT COUNT(*) FROM {i[0]};').fetchall()[0][0]} rows{RESET}")
+            print(f"{DIM} - {RESET}{i[0]}  {DIM}|{RESET}  {GREEN}{c.execute(f'SELECT COUNT(*) FROM {i[0]};').fetchall()[0][0]} rows{RESET}{DIM},{RESET}  {ORANGE}{c.execute(f"SELECT COUNT(*) FROM pragma_index_list('{i[0]}');").fetchall()[0][0]} indexes{RESET}")
 
 
     print("")

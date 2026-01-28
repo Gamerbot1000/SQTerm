@@ -2,20 +2,29 @@ import psutil
 import time
 from sqterm.extras import loading
 
-def executer(c, i):
+def info():
+    return '"RUNSQL" - wip'
+
+def main(state, i):
+    c = state["cursor"]
+
+    path = input("Path to .sql file: ")
 
     try:
         loading.loading()
         start_mem = psutil.Process().memory_info().rss / 1024 / 1024
         start = time.perf_counter()
-        c.execute(i)
-        print("Command Executed!")
-        output = c.fetchall()
 
-        print("Command Output:", output)
-            
+        with open(path, "r") as f:
+            sql = f.read()
+
+        c.executescript(sql)
+        print("Script Executed!")
+        output = c.fetchall()
+        print("Script Output:", output)
+
         end = time.perf_counter()
-        end_mem = psutil.Process().memory_info().rss / 1024 / 1024
+        end_mem = psutil.Process().memory_info().rss / 1024 / 1024 / 1024
         length = end - start
         mem_used = end_mem - start_mem
         loading.stop()
