@@ -2,3 +2,4 @@ commands/__pycache__
 core/__pycache__
 __pycache__
 databases/*.db
+.DS_Store
