@@ -1,5 +1,6 @@
+
 <p align="center">
-  <img src="sqterm/extras/logo2.png" alt="SQTerm Logo" width="170">
+  <img src="sqterm/extras/newlogo.png" alt="SQTerm Logo" width="300">
 </p>
 
 # 
@@ -9,25 +10,24 @@ Built for when you don’t want a bloated GUI and just need to get work done —
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🔹 Execute raw SQL commands directly
-- 🔹 Clean table output with `tabulate`
-- 🔹 Import large CSV files into tables (fast, petl-backed)
-- 🔹 Export entire tables or query results to CSV
-- 🔹 View tables and their structure
-- 🔹 Show various database statistics
-- 🔹 Basic autocompletion
-- 🔹 Switch between `.db` files mid-session
-- 🔹 Error handling with clear messages
-- 🔹 Remove any unused feature by simply deleting a single file
-- 🔹 Write your own feature easily in a simple format when preinstalled features don't meet your needs
+- Execute raw SQL commands directly
+- Clean table output with `tabulate`
+- Import large CSV files into tables (fast, petl-backed)
+- Export entire tables or query results to CSV
+- View tables and their structure
+- Show various database statistics
+- Basic autocompletion
+- Switch between `.db` files mid-session
+- Error handling with clear messages
+- Remove any unused feature by simply deleting a single file
+- Write your own feature easily in a simple format when preinstalled features don't meet your needs
 
-Tested on tables and `.csv` files with up to **10 million rows**. No problem.
 
 ---
 
-## ⬇️ Installation
+## Installation
 
 pip:
 
@@ -39,7 +39,7 @@ pipx:
 
 ---
 
-## 🔧 Making your own commands
+## Making your own commands
 
 To make your own command simply create a .py file titled **exactly** what the user has to type to execute the command.
 
@@ -81,7 +81,7 @@ If there's anything you'd like to be autocompleted simply append it to the cache
 
 ---
 
-## 🛠 Requirements for running source code
+## Requirements for running source code
 
 - Python 3.x  
 - Libraries:  
