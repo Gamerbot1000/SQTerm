@@ -31,11 +31,15 @@ Built for when you don’t want a bloated GUI and just need to get work done —
 
 pip:
 
-`pip install sqterm`
+```bash
+pip install sqterm
+```
 
 pipx:
 
-`pipx install sqterm`
+```bash
+pipx install sqterm
+```
 
 ---
 
