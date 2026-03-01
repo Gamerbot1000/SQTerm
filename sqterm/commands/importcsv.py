@@ -17,19 +17,17 @@ def main(state , i):
 
     if choice.lower() == "e":
 
-        sf1 = c.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
-        sf2 = c.fetchall()
-        sf3 = sf2[0]
-        sf4 = sf3[0]
+        c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        tables = c.fetchall()
 
-        if sf4 == 0:
-            print("No data found!")
+        if tables == []:
+            print("No tables found!")
+            return
 
-        else:
-            c.execute("SELECT name FROM sqlite_master WHERE type='table';")
-            tables = c.fetchall()
+        else:        
             print("=== Tables: ===")
             print('')
+
             for item in tables:
                 print("     ", item[0])
                 CACHE.append(item[0])

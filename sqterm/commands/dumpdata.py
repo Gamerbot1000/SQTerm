@@ -1,26 +1,21 @@
 from tabulate import tabulate
 
 def info():
-    return '"SHOWDATA" - Prints all the data (Not reccomended for large databases)'
+    return '"DUMPDATA" - Dumps all the data in the database (Not reccomended for large databases)'
 
 def main(state, i):
     c = state["cursor"]
 
-    sf1 = c.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
-    sf2 = c.fetchall()
-    sf3 = sf2[0]
-    sf4 = sf3[0]
+    c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = c.fetchall()
 
-    if sf4 == 0:
-        print("No data found!")
-    else:
-                
-                
-        table1 = c.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        table2 = c.fetchall()
-                
+    if tables == []:
+        print("No tables found!")
+        return
 
-        for item in table2:
+    else:     
+
+        for item in tables:
             print('')
             print(f'=== Table "{item[0]}" Data ===')
 

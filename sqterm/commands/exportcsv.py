@@ -11,18 +11,14 @@ def info():
 def main(state , i):
     c = state["cursor"]
 
-    c.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
-    sf2 = c.fetchall()
-    sf3 = sf2[0]
-    sf4 = sf3[0]
+    c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = c.fetchall()
 
-    if sf4 == 0:
+    if tables == []:
         print("No tables found!")
         return
 
     else:        
-        c.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        tables = c.fetchall()
         print("=== Tables: ===")
         print('')
 

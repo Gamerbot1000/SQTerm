@@ -26,7 +26,6 @@ def executer(c, i):
                     table_name = table[0]
                     break
             if table_name == "":
-                print("got here")
                 print("Command Output:", output)
                 
                     

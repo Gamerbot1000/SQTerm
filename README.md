@@ -14,8 +14,8 @@ Built for when you don’t want a bloated GUI and just need to get work done —
 
 - Execute raw SQL commands directly
 - Clean table output with `tabulate`
-- Import large CSV files into tables (fast, petl-backed)
-- Export entire tables or query results to CSV
+- Import CSV files
+- Export entire tables to CSV
 - View tables and their structure
 - Show various database statistics
 - Basic autocompletion
