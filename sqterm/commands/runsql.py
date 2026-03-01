@@ -28,7 +28,7 @@ def main(state, i):
         length = end - start
         mem_used = end_mem - start_mem
         loading.stop()
-        print("Time to execute:", length, "s", "|", "RAM used:", mem_used, "MB")
+        print("Time to execute:", f"{length:.2f}", "s", "|", "RAM used:", f"{mem_used:.2f}", "MB")
 
     except Exception as e:
         loading.stop()

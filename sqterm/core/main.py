@@ -9,42 +9,22 @@ from sqterm.extras import autocomplete
 def main_app():
     os.makedirs("databases", exist_ok=True)
 
-    if len(sys.argv) == 2 and os.path.isfile(sys.argv[1]) == True:
-        db_name = sys.argv[1]
-    elif len(sys.argv) == 2 and sys.argv[1] == "--legacy":
-        db_name = inputs.db_name_legacy()
-    elif len(sys.argv) == 2 and sys.argv[1] == "--help":
-        print("Usage: sqterm [PATH_TO_DB] ['SQL COMMAND'] (Optional) \n")
-        print("If no PATH_TO_DB is provided, you will be prompted to select a database.")
-        print("Use --legacy to select a database from the old database selection menu.")
-        print("Optionally, use --raw followed by an SQL command to execute the command and print a raw output.")
-        sys.exit()
-    elif len(sys.argv) >= 2 and os.path.isfile(sys.argv[1]) == False:
-        print("Invalid argument, use --help for help.")
-        sys.exit()
+    db_name = None
 
-    elif len(sys.argv) >= 3:
+    if len(sys.argv) > 1:
         try:
+            flag = importlib.import_module(f"sqterm.flags.{sys.argv[1].replace('--', 'flag_').lower()}")
+            function_flag = flag.main()
 
-            db_name = sys.argv[1]
-            name, conn, c = connector.connect(db_name)
+            if function_flag != None and os.path.isfile(function_flag) == True:
+                db_name = function_flag
+                
 
-            if sys.argv[2] == "--raw":
-                c.execute(sys.argv[3])
-                print(c.fetchall())
-            else:
-                executer.executer(c, i=sys.argv[2])
-
-            conn.commit()
-            conn.close()
+        except:
+            print("Invalid or broken flag provided!")
             sys.exit()
 
-        except Exception as e:
-            print("An error has occured! Problem:", e)
-            sys.exit()
-
-
-    else:
+    if db_name == None:
         db_name = inputs.db_name()
 
     name, conn, c = connector.connect(db_name)

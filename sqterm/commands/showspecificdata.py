@@ -66,7 +66,7 @@ def main(state, i):
             CACHE.clear()
                             
             print('')
-            print(tabulate(rows, headers=columns, tablefmt="grid"))
+            print(tabulate(rows, headers=columns, tablefmt="rounded_grid"))
             print('')
         except Exception as e:
             CACHE.clear()

@@ -33,5 +33,5 @@ def main(state, i):
             columns = [col[1] for col in c.fetchall()]
                     
             print('')
-            print(tabulate(row2, headers=columns, tablefmt="grid"))
+            print(tabulate(row2, headers=columns, tablefmt="rounded_grid"))
             print('')

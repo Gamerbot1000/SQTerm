@@ -6,7 +6,7 @@ def connect(db_name):
     if os.path.isfile(db_name) == True:
         name = db_name
     else:
-        name = "databases/" + db_name + ".db"
+        name = os.path.join(os.getcwd(), "databases", f"{db_name}.db")
     conn = sqlite3.connect(name)
     c = conn.cursor()
     return name, conn, c

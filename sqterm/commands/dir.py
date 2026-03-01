@@ -8,3 +8,4 @@ def main(state, i):
     print("Databases folder path:", os.path.abspath('databases/'))
     print("Exports folder path:", os.path.abspath('exports/'))
     print("Commands folder path:", os.path.abspath('commands/'))
+    print("Flags folder path:", os.path.abspath('flags/'))

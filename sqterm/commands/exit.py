@@ -1,5 +1,3 @@
-import sys
-
 def info():
     return '"EXIT" - Exits the application'
 
