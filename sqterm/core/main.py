@@ -20,7 +20,7 @@ def main_app():
                 db_name = function_flag
                 
 
-        except:
+        except Exception:
             print("Invalid or broken flag provided!")
             sys.exit()
 
