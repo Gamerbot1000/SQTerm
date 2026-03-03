@@ -2,14 +2,19 @@ import time
 import psutil
 import os
 import csv
+from prompt_toolkit import prompt
+from prompt_toolkit.shortcuts import CompleteStyle
+from prompt_toolkit.completion import WordCompleter
 from sqterm.extras import loading
-from sqterm.extras.autocomplete import CACHE
+
 
 def info():
     return '"EXPORTCSV" - Exports a table to a CSV file'
 
 def main(state , i):
     c = state["cursor"]
+
+    CACHE = []
 
     c.execute("SELECT name FROM sqlite_master WHERE type='table';")
     tables = c.fetchall()
@@ -27,7 +32,9 @@ def main(state , i):
             CACHE.append(item[0])
         print('')
 
-        table_name = input("Which table would you like to export as a CSV?: ")
+        completer = WordCompleter(CACHE, ignore_case=True)
+
+        table_name = prompt("Which table would you like to export as a CSV?: ", completer=completer, complete_style=CompleteStyle.READLINE_LIKE, complete_while_typing=False)
 
     path = input("Full path to folder which you'd like the table exported: ")
 

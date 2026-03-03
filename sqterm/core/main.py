@@ -29,7 +29,6 @@ def main_app():
 
     name, conn, c = connector.connect(db_name)
 
-    autocomplete.completer()
 
     state = {
         "db_name": db_name,

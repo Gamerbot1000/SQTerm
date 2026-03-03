@@ -17,7 +17,8 @@ def main():
                 module = importlib.import_module(f"sqterm.flags.{file[:-3]}")
                 if hasattr(module, "info"):
                     print("     " + module.info())
-            except Exception as e:
-                print(e)
+            except Exception:
+                print()
+                print("Error loading info for flag:", file)
 
     sys.exit()

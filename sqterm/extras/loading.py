@@ -1,6 +1,5 @@
 import time
 import threading
-import sys
 
 done = False
 t = None

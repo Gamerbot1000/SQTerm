@@ -2,7 +2,9 @@ import time
 import psutil
 import csv
 from sqterm.extras import loading
-from sqterm.extras.autocomplete import CACHE
+from prompt_toolkit import prompt
+from prompt_toolkit.shortcuts import CompleteStyle
+from prompt_toolkit.completion import WordCompleter
 
 
 
@@ -11,6 +13,8 @@ def info():
 
 def main(state , i):
     c = state["cursor"]
+
+    CACHE = []
 
     path = input("Path to CSV file: ")
     choice = input("Import data to existing table or create new? (e/n): ")
@@ -32,7 +36,10 @@ def main(state , i):
                 print("     ", item[0])
                 CACHE.append(item[0])
             print('')
-            table_name = input("Name of the table you wish to import data to: ")
+
+            completer = WordCompleter(CACHE, ignore_case=True)
+
+            table_name = prompt("Name of the table you wish to import data to: ", completer=completer, complete_style=CompleteStyle.READLINE_LIKE, complete_while_typing=False)
             CACHE.clear()
 
     elif choice.lower() == "n":

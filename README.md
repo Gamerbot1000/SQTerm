@@ -97,4 +97,4 @@ If there's anything you'd like to be autocompleted simply append it to the cache
 Install them with:
 
 ```bash
-pip install petl sqlalchemy tabulate psutil
+pip install prompt_toolkit tabulate psutil

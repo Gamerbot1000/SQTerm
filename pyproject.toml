@@ -1,13 +1,13 @@
 [project]
 name = "sqterm"
-version = "1.4.0"
+version = "1.4.1"
 description = "Terminal-based SQLite manager"
 readme = "README.md"
 requires-python = ">=3.9"
 license = {file = "LICENSE"}
 authors = [{name = "Gbot"}]
 
-dependencies = ["tabulate", "psutil"]
+dependencies = ["tabulate", "psutil", "prompt_toolkit"]
 
 [project.scripts]
 sqterm = "sqterm.__main__:main"
