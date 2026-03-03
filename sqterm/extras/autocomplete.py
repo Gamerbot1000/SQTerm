@@ -1,8 +1,11 @@
-import readline
+from prompt_toolkit.completion import WordCompleter
+from prompt_toolkit.history import FileHistory
 import os
 
 CALLOUTS = []
 CACHE = []
+
+
 
 dirs = os.listdir('commands')
 for file in dirs:
@@ -10,17 +13,13 @@ for file in dirs:
         command = file[:-3]
         CALLOUTS.append(command.upper())
 
+keywords = CALLOUTS
+cache = CACHE
 
-def completer(text='', idx=0):
-    text_lower = text.lower()
-
-    matches = [c for c in (CACHE if CACHE else CALLOUTS) if c.lower().startswith(text_lower)]
-    return matches[idx] if idx < len(matches) else None
-
-
-readline.set_completer(completer)
-
-if readline.__doc__ and "libedit" in readline.__doc__:
-    readline.parse_and_bind("bind ^I rl_complete")
+if CACHE:
+    completer = WordCompleter(cache, ignore_case=True)
 else:
-    readline.parse_and_bind("tab: complete")
+    completer = WordCompleter(keywords, ignore_case=True)
+
+
+history = FileHistory(".sqterm_history")
