@@ -2,7 +2,6 @@ import os
 from prompt_toolkit import prompt
 from prompt_toolkit.formatted_text import ANSI
 from prompt_toolkit.shortcuts import CompleteStyle
-from sqterm.extras import art
 from sqterm.extras.colors import *
 from sqterm.extras.autocomplete import completer, history
 
