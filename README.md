@@ -88,9 +88,8 @@ If there's anything you'd like to be autocompleted simply append it to the cache
 ## Requirements for running source code
 
 - Python 3.x  
-- Libraries:  
-  - `petl`
-  - `sqlalchemy`
+- Libraries:
+  - `prompt_toolkit`
   - `tabulate`  
   - `psutil`
 
